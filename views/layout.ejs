@@ -9,10 +9,18 @@
 <body>
     <h1>Albums</h1>
     <ul>
-        <% for (let album of albums) { %>
-            <li><%= album.Title %> </li>
-
+        <% for (let i = 0; i < page.albumsParsed.length; i++) { %>
+            <li class="album">
+              <h1> <%= page.albumsParsed[i].Title %></h1>
+              <h2 class="band">-<%= page.albumsParsed[i].Name %></h2>
+            </li>
         <% } %>
-    </ul>
+        </ul>
+        <footer>
+            <% for(let page of pages){ %>
+                <% let index = pages.indexOf(page) + 1 %> 
+                <a href="<%= page.fileName %>"> <%= index %></a>
+            <% } %>
+        </footer>
 </body>
 </html>
